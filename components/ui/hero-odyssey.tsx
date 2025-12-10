@@ -524,7 +524,7 @@ export const HeroSection: React.FC = () => {
       <div className="absolute inset-0 z-40 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-[15%] w-[900px] h-[600px] pointer-events-auto">
           <GLBModelViewer
-            modelPath="/land.glb"
+            modelPath="https://media.githubusercontent.com/media/RanL703/fishfeed-ard/main/public/land.glb"
             cameraPosition={[4, 2, 4]}
             autoRotate={false}
             scale={1}
