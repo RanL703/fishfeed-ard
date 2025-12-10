@@ -1,6 +1,7 @@
 "use client";
 import React, { useState,useRef,useEffect } from 'react';
 import { motion,AnimatePresence } from 'framer-motion';
+import { GLBModelViewer } from './glb-model-viewer';
 
 
 interface ElasticHueSliderProps {
@@ -332,8 +333,6 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ name, value, position }) => {
 
 export const HeroSection: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // State for the lightning hue
-  const [lightningHue, setLightningHue] = useState(220); // Default hue
 
   const containerVariants: any = {
     hidden: { opacity: 0 },
@@ -438,16 +437,16 @@ export const HeroSection: React.FC = () => {
           className="w-full z-200 top-[30%] relative"
         >
           <motion.div variants={itemVariants}>
-            <FeatureItem name="React" value="for base" position="left-0 sm:left-10 top-40" />
+            <FeatureItem name="Precision Dosing" value="for metered feeding" position="left-0 sm:left-10 top-40" />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <FeatureItem name="Tailwind" value="for styles" position="left-1/4 top-24" />
+            <FeatureItem name="Remote Control" value="for scheduling and mixing" position="left-1/4 top-24" />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <FeatureItem name="Framer-motion" value="for animations" position="right-1/4 top-24" />
+            <FeatureItem name="Water Quality" value="for stability of the fish space" position="right-1/4 top-24" />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <FeatureItem name="Shaders" value="for lightning" position="right-0 sm:right-10 top-40" />
+            <FeatureItem name="Scalability" value="for managing feeding instances" position="right-0 sm:right-10 top-40" />
           </motion.div>
         </motion.div>
 
@@ -457,19 +456,15 @@ export const HeroSection: React.FC = () => {
           initial="hidden"
           animate="visible"
           className="relative z-30 flex flex-col items-center text-center max-w-4xl mx-auto "
-        >            <ElasticHueSlider
-              value={lightningHue}
-              onChange={setLightningHue}
-              label="Adjust Lightning Hue"
-            />
-          {/* Button: "Join us for free world" */}
+        >
+          {/* Button: "Start smarter feeding" */}
           <motion.button
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="flex items-center space-x-2 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full text-sm mb-6 transition-all duration-300 group" // Reduced mb slightly
           >
-            <span>Join us for free world</span>
+            <span>Start smarter feeding</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transform group-hover:translate-x-1 transition-transform duration-300">
               <path d="M8 3L13 8L8 13M13 8H3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -479,14 +474,14 @@ export const HeroSection: React.FC = () => {
             variants={itemVariants}
             className="text-5xl md:text-7xl font-light mb-2"
           >
-            Hero Odyssey
+            Feed efficiency on autopilot
           </motion.h1>
 
           <motion.h2
             variants={itemVariants}
             className="text-3xl md:text-5xl pb-3 font-light bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 bg-clip-text text-transparent"
           >
-            Lighting Up The Future
+            Smart dosing keeps fish thriving.
           </motion.h2>
 
           {/* Description */}
@@ -494,18 +489,9 @@ export const HeroSection: React.FC = () => {
             variants={itemVariants}
             className="text-gray-400 mb-9 max-w-2xl"
           >
-            Lightning animation is 100% code generated, so fill free to customize it to your liking.
+            An IoT‑connected feeder that delivers precise rations on schedule to cut waste, stabilize water, and accelerate growth, while a mobile dashboard lets farmers monitor, tweak, and scale operations across ponds with fewer trips and lower labor.
           </motion.p>
 
-
-          <motion.button
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-[100px] sm:mt-[100px] px-8 py-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors"
-          >
-            Discover Those Worlds
-          </motion.button>
         </motion.div>
       </div>
 
@@ -522,20 +508,34 @@ export const HeroSection: React.FC = () => {
         {/* Glowing circle */}
         <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-blue-500/20 to-purple-600/10 blur-3xl"></div>
 
-        {/* Central light beam - now using the state variable for hue */}
+        {/* Central light beam */}
         <div className="absolute top-0 w-[100%] left-1/2 transform -translate-x-1/2 h-full">
           <Lightning
-            hue={lightningHue} // Use the state variable here
+            hue={220}
             xOffset={0}
             speed={1.6}
             intensity={0.6}
             size={2}
           />
         </div>
-
-        {/* Planet/sphere */}
-        <div className="z-10 absolute top-[55%] left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] backdrop-blur-3xl rounded-full bg-[radial-gradient(circle_at_25%_90%,_#1e386b_15%,_#000000de_70%,_#000000ed_100%)]"></div>
       </motion.div>
+
+      {/* 3D Model - placed outside background container for proper z-index */}
+      <div className="absolute inset-0 z-40 pointer-events-none">
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-[15%] w-[900px] h-[600px] pointer-events-auto">
+          <GLBModelViewer
+            modelPath="/land.glb"
+            cameraPosition={[4, 2, 4]}
+            autoRotate={false}
+            scale={1}
+            enableZoom={false}
+            enablePan={true}
+            minDistance={1}
+            maxDistance={15}
+            className="w-full h-full"
+          />
+        </div>
+      </div>
     </div>
   );
 };
