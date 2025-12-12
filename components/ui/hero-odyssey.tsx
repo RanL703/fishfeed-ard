@@ -369,22 +369,18 @@ export const HeroSection: React.FC = () => {
           className="px-4 backdrop-blur-3xl bg-black/50 rounded-50 py-4 flex justify-between items-center mb-12"
         >
           <div className="flex items-center">
-            <div className="text-2xl font-bold">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <path d="M20 5L5 20L20 35L35 20L20 5Z" stroke="white" strokeWidth="2" />
-              </svg>
-            </div>
+            <a href="#" className="text-2xl font-bold">
+              <img src="/logo.png" alt="FishFeed Logo" className="h-10 w-auto" />
+            </a>
             <div className="hidden md:flex items-center space-x-6 ml-8">
-              <button className="px-4 py-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-full text-sm transition-colors">Start</button>
-              <button className="px-4 py-2 text-sm hover:text-gray-300 transition-colors">Home</button>
-              <button className="px-4 py-2 text-sm hover:text-gray-300 transition-colors">Contacts</button>
-              <button className="px-4 py-2 text-sm hover:text-gray-300 transition-colors">Help</button>
-              <button className="px-4 py-2 text-sm hover:text-gray-300 transition-colors">Docs</button>
+              <a href="#smart-control" className="px-4 py-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-full text-sm transition-colors">Smart Control</a>
+              <a href="#tech-specs" className="px-4 py-2 text-sm hover:text-gray-300 transition-colors">Tech Specs</a>
+              <a href="#performance" className="px-4 py-2 text-sm hover:text-gray-300 transition-colors">Performance</a>
+              <a href="#roadmap" className="px-4 py-2 text-sm hover:text-gray-300 transition-colors">Roadmap</a>
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <button className="hidden md:block px-4 py-2 text-sm hover:text-gray-300 transition-colors">Register</button>
-            <button className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm rounded-full text-sm hover:bg-gray-700/80 transition-colors">Application</button>
+            <a href="#" className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm rounded-full text-sm hover:bg-gray-700/80 transition-colors">Get Started</a>
             {/* Mobile menu button */}
             <button
               className="md:hidden p-2 rounded-md focus:outline-none"
@@ -419,13 +415,10 @@ export const HeroSection: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-              <button className="px-6 py-3 bg-gray-800/50 rounded-full">Start</button>
-              <button className="px-6 py-3">Home</button>
-              <button className="px-6 py-3">Contacts</button>
-              <button className="px-6 py-3">Help</button>
-              <button className="px-6 py-3">Docs</button>
-              <button className="px-6 py-3">Register</button>
-              <button className="px-6 py-3 bg-gray-800/80 backdrop-blur-sm rounded-full">Application</button>
+              <a href="#smart-control" onClick={() => setMobileMenuOpen(false)} className="px-6 py-3 bg-gray-800/50 rounded-full">Smart Control</a>
+              <a href="#tech-specs" onClick={() => setMobileMenuOpen(false)} className="px-6 py-3">Tech Specs</a>
+              <a href="#performance" onClick={() => setMobileMenuOpen(false)} className="px-6 py-3">Performance</a>
+              <a href="#roadmap" onClick={() => setMobileMenuOpen(false)} className="px-6 py-3">Roadmap</a>
             </div>
           </motion.div>
         )}

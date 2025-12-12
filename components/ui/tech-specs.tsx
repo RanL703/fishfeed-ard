@@ -232,7 +232,7 @@ export const TechSpecs: React.FC = () => {
   ];
 
   return (
-    <section className="relative w-full py-24 px-8 bg-black overflow-hidden">
+    <section id="tech-specs" className="relative w-full py-24 px-8 bg-black overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/20 to-black" />
       

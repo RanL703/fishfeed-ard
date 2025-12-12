@@ -121,7 +121,7 @@ export const SmartControlGrid: React.FC = () => {
       title: "Mobile App Control",
       description:
         "Full remote access with real-time dashboard. Schedule feeds, monitor status, and adjust portions from anywhere in the world.",
-      tags: ["Blynk", "ThingSpeak", "Real-time"],
+      tags: ["ThingSpeak", "Real-time"],
       gradient: "bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-500/5",
       glowColor: "bg-blue-500",
     },
@@ -130,7 +130,7 @@ export const SmartControlGrid: React.FC = () => {
       title: "Voice Activation",
       description:
         "Hands-free control with >95% success rate. Simply speak to feed your fish instantly without touching your phone.",
-      tags: ["Google Assistant", "Alexa", "IFTTT"],
+      tags: ["Google Assistant", "Alexa"],
       gradient: "bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/5",
       glowColor: "bg-purple-500",
     },
@@ -146,7 +146,7 @@ export const SmartControlGrid: React.FC = () => {
   ];
 
   return (
-    <section className="relative w-full py-24 px-8 bg-black overflow-hidden">
+    <section id="smart-control" className="relative w-full py-24 px-8 bg-black overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/30 to-black" />
       <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-blue-500/5 blur-3xl" />
